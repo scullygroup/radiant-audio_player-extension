@@ -25,7 +25,7 @@ class AudioPlayerExtension < Radiant::Extension
   end
 
   def activate
-    Inflector.inflections do |inflect|
+    ActiveSupport::Inflector.inflections do |inflect|
       inflect.uncountable "audio" # cause 'audios' just sounds wrong!
     end
     admin.tabs.add "Audio", "/admin/audio", :after => "Layouts", :visibility => [:all]
