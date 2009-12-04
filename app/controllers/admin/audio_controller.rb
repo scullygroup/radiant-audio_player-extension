@@ -1,4 +1,4 @@
-class Admin::AudioController < Admin::AbstractModelController
+class Admin::AudioController < Admin::ResourceController
   model_class Audio
 
   def index

@@ -1,4 +1,4 @@
-class Admin::AudioPlayerConfigController < Admin::AbstractModelController
+class Admin::AudioPlayerConfigController < Admin::ResourceController
   model_class AudioPlayerConfig
   
   helper "admin/audio"
