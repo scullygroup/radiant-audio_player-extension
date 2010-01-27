@@ -7,6 +7,12 @@ Suggested uses: publishing a podcast, or portfolio of music.
 
 This is a standalone extension. It does not depend on any other asset management extensions, but neither should it cause any conflict if you do have such an extension installed.
 
+Added Features by ScullyGroup
+-----------------------------
+
+Added additional route /songs/playlist.xml to output wimpy player xml playlists
+Added necessary controller actions and view updates for basic create, remove and update to work
+
 Installation
 ------------
 
