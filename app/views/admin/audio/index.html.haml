@@ -1,0 +1,34 @@
+- include_stylesheet 'admin/audio_player/audio'
+- include_javascript 'audio_player/audio-player'
+
+%h1 Audio
+
+%p You can enter audio tracks here.
+
+%table#audio.index{ :cellspacing => "0", :border => "0", :cellpadding => "0" }
+  %thead
+    %tr
+      %th.audio
+        Audio
+      %th.player
+      %th.modify
+        Modify
+  %tbody
+    - @audio.each do |audio_track|
+      %tr.node.level-1
+        %td.audio
+          = image('audio_player/audio')
+          = link_to audio_track.title, audio_edit_url(:id => audio_track.id)
+        %td
+          %object{ :type => "application/x-shockwave-flash", :id => "audioplayer#{audio_track.id}", :height => "24", :data => "/flash/audio_player/player.swf", :width => "290" }
+            %param{ :name => "movie", :value => "/flash/audio_player/player.swf" }
+            %param{ :name => "FlashVars", :value => admin_player_params(audio_track) }
+            %param{ :name => "quality", :value => "high" }
+            %param{ :name => "menu", :value => "false" }
+            %param{ :name => "wmode", :value => "transparent" }
+        %td.remove
+          = link_to image('remove', :alt => 'Remove audio'), audio_remove_url(:id => audio_track.id)
+
+%p
+  = link_to image("audio_player/new-audio", :alt => "New audio"), {:action => :new}
+  = link_to image("audio_player/reorder", :alt => "Reorder"), {:action => :reorder}

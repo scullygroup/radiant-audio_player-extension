@@ -1,0 +1,18 @@
+%h1
+  Remove Audio
+%p
+  Are you sure you want to
+  %strong.warning
+    permanently remove
+  the following audio?
+%table#audio.index{ :cellspacing => "0", :border => "0", :cellpadding => "0" }
+  %tbody
+    %tr.node.level-1
+      %td.audio
+        = image('audio_player/audio', :alt => 'audio-icon')
+        = h @audio.title
+- form_for (:audio, :url => "/admin/audio/destroy/#{@audio.id}", :html => {:multipart => true}) do |f|
+  %p.buttons
+    %input.button{ :type => "submit", :value => "Delete Audio" }
+    or
+    = link_to 'Cancel', audio_index_url

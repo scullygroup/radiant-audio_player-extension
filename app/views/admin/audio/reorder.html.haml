@@ -1,0 +1,27 @@
+- include_stylesheet 'admin/audio_player/audio'
+- include_javascript 'dragdrop.js'
+%h1#reorder_pages
+  Reorder Audio tracks
+%p
+  Drag and drop tracks to reorder. Click
+  %strong
+    Finished
+  when you are done.
+%ul#audio_tracks.pages
+  - for child in @audio
+    %li.audio_track{ :id => "item_#{child.id}" }
+      = image('audio_player/audio')
+      = child.title
+%script{ :type => "text/javascript" }
+  Sortable.create("audio_tracks",
+  { onUpdate:function() {
+  $('sort_order').value = Sortable.sequence('audio_tracks').join(',')
+  }
+  });
+- form_tag audio_update_order_path do
+  %div
+    = hidden_field_tag "sort_order"
+  %p.buttons
+    = submit_tag "Finished", :class => 'button'
+    or
+    = link_to 'Cancel', audio_index_path

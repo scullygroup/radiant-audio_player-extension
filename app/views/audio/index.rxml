@@ -1,0 +1,13 @@
+xml.playlist{
+  for item in @sounds
+    xml.item{
+      xml.artist("")
+      xml.album("")
+  		xml.seconds("")
+  		xml.comments(item.description)
+  		xml.visual()
+  		xml.title(item.title)
+  		xml.filename(item.track.url)
+    }
+  end
+}

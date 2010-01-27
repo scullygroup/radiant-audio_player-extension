@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "Audio tags" do
-  scenario :audio_page_scenario
+  dataset :audio_page_dataset
   
   before(:each) do
     @page = pages(:home)

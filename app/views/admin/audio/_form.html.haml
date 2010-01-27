@@ -1,0 +1,32 @@
+/- form_for :audio, :html => {:multipart => true} do |f|
+- form_for (:audio, :url => '/admin/audio/create', :html => {:multipart => true}) do |f|
+  .form-area
+    #audio_form_area
+      %p
+        %label{ :for => "audio_track" }
+          Audio file
+        = f.file_field :track
+        - if content_type_error = @audio.errors.on(:track_content_type)
+          %small.error
+            •
+            = content_type_error
+      %p.title
+        %label{ :for => "audio_title" }
+          Title
+        = f.text_field "title", :class => 'textbox', :maxlength => 255
+      %p.description
+        %label{ :for => "audio_description" }
+          Description
+        = f.text_area "description", :class => 'textbox', :maxlength => 255
+      %p
+        %label{ :for => "audio_filter" }
+          Filter:
+        %select#audio_filter{ :name => "audio[filter]" }
+          = options_for_select([['none', '']] + TextFilter.descendants.map { |f| f.filter_name }.sort, @audio.filter)
+      %span.clear
+        \&nbsp;        
+  %p.buttons
+    = save_model_button(@audio)
+    or
+    = link_to "Cancel", {:action => :index}
+        

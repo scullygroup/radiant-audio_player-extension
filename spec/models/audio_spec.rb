@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Audio do
-  scenario :audio_page
+  dataset :audio_page
   
   it "should use id and title to form a slug" do
     @audio_track = Audio.find_by_title("Debut")

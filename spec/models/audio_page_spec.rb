@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe AudioPage do
-  scenario :audio_page
+  dataset :audio_page
   
   before(:each) do
     @audio_track = Audio.find(:first, :order => 'position ASC')
