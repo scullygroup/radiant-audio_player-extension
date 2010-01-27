@@ -11,6 +11,7 @@ Added Features by ScullyGroup
 -----------------------------
 
 Added additional route /songs/playlist.xml to output wimpy player xml playlists
+
 Added necessary controller actions and view updates for basic create, remove and update to work
 
 Installation
